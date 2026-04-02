@@ -1,0 +1,43 @@
+name: Responsive UI Monitor
+
+on:
+  schedule:
+    # 매주 월요일 오전 06:00 KST (= 일요일 21:00 UTC)
+    - cron: '0 21 * * 0'
+  workflow_dispatch: # 수동 실행 버튼 활성화
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: 코드 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node.js 설정
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 의존성 설치
+        run: npm ci
+
+      - name: Playwright 브라우저 설치
+        run: npx playwright install chromium --with-deps
+
+      - name: 모니터링 실행
+        env:
+          OPENAI_API_KEY:    ${{ secrets.OPENAI_API_KEY }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          GITHUB_RUN_URL:    ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: npm run monitor
+
+      - name: 스크린샷 아티팩트 업로드
+        if: always() # 이슈 없어도 항상 업로드
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-${{ github.run_id }}
+          path: screenshots/
+          retention-days: 30 # 30일 보관 후 자동 삭제
