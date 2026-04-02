@@ -1,0 +1,16 @@
+{
+  "name": "responsive-monitor",
+  "version": "1.0.0",
+  "description": "반응형 UI 자동 모니터링",
+  "scripts": {
+    "monitor": "node src/monitor.js",
+    "install:browsers": "npx playwright install chromium --with-deps"
+  },
+  "dependencies": {
+    "playwright": "^1.44.0",
+    "openai": "^4.52.0",
+    "axios": "^1.7.0",
+    "js-yaml": "^4.1.0",
+    "dotenv": "^16.4.0"
+  }
+}
