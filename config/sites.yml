@@ -1,0 +1,83 @@
+urls:
+  - name: "themedion_home"
+    url: "https://themedion.com/"
+
+devices:
+  # ── 모바일 ──────────────────────────────
+  - name: "iPhone 16 Pro"
+    width: 393
+    height: 852
+    category: "mobile"
+
+  - name: "iPhone 14-15"
+    width: 390
+    height: 844
+    category: "mobile"
+
+  - name: "iPhone SE 3rd"
+    width: 375
+    height: 667
+    category: "mobile"
+
+  - name: "Galaxy S23"
+    width: 360
+    height: 780
+    category: "mobile"
+
+  - name: "Galaxy A54"
+    width: 360
+    height: 800
+    category: "mobile"
+
+  # ── 폴더블 ──────────────────────────────
+  - name: "Galaxy Z Fold6 (덮음)"
+    width: 402
+    height: 882
+    category: "foldable"
+
+  - name: "Galaxy Z Fold6 (펼침)"
+    width: 884
+    height: 1080
+    category: "foldable"
+
+  - name: "Galaxy Z Flip6 (펼침)"
+    width: 360
+    height: 820
+    category: "foldable"
+
+  # ── 태블릿 ──────────────────────────────
+  - name: "iPad Air 10.9"
+    width: 820
+    height: 1180
+    category: "tablet"
+
+  - name: "iPad Mini 6th"
+    width: 744
+    height: 1133
+    category: "tablet"
+
+  - name: "Galaxy Tab S8"
+    width: 800
+    height: 1280
+    category: "tablet"
+
+  # ── 데스크탑 ────────────────────────────
+  - name: "Desktop 1280"
+    width: 1280
+    height: 800
+    category: "desktop"
+
+  - name: "Desktop 1440"
+    width: 1440
+    height: 900
+    category: "desktop"
+
+  - name: "Desktop 1920"
+    width: 1920
+    height: 1080
+    category: "desktop"
+
+  - name: "Desktop 2560"
+    width: 2560
+    height: 1440
+    category: "desktop"
